@@ -35,6 +35,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
 import android.view.View;
+import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -161,6 +162,7 @@ public class BackgroundModeExt extends CordovaPlugin {
      * Enable GPS position tracking while in background.
      */
     private void disableWebViewOptimizations() {
+        Log.d("BGM", "disableWebViewOptimizations");
         Thread thread = new Thread(){
             public void run() {
                 try {
@@ -192,6 +194,7 @@ public class BackgroundModeExt extends CordovaPlugin {
     @SuppressLint("BatteryLife")
     private void disableBatteryOptimizations()
     {
+        Log.d("BGM", "disableBatteryOptimizations");
         Activity activity = cordova.getActivity();
         Intent intent     = new Intent();
         String pkgName    = activity.getPackageName();
